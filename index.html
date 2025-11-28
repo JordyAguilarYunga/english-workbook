@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Genres - Interactive Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+      // Make menu visible on load
+      window.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('menu').classList.add('active');
+      });
+    </script>
+    <!-- Landing Page Section -->
+    <div id="landing" class="section active">
+        <div class="landing-hero">
+            <div class="landing-particles"></div>
+            <div class="landing-content">
+                <div class="landing-badge">Interactive English Learning</div>
+                <h1 class="landing-title">English Learning Workbook</h1>
+                <p class="landing-subtitle">Interactive Activities for Cinema &amp; Environment</p>
+                <button class="landing-cta" onclick="showMainMenu()">START LEARNING</button>
+                
+                <div class="landing-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎬</div>
+                        <div class="feature-title">15 Interactive Activities</div>
+                        <div class="feature-desc">Complete English curriculum with engaging exercises</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <div class="feature-title">Mobile Responsive</div>
+                        <div class="feature-desc">Perfect on phone, tablet, or desktop</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">✅</div>
+                        <div class="feature-title">Real-time Feedback</div>
+                        <div class="feature-desc">Instant validation and progress tracking</div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-title">Complete Curriculum</div>
+                        <div class="feature-desc">Vocabulary, Grammar, Reading, Writing &amp; More</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Menu Section -->
+        <div id="menu" class="section">
+            <div class="top-progress-outer">
+                <div class="top-progress-info">Progress: <span id="overall-progress-count">1</span> / <span id="overall-progress-total">16</span> Activities</div>
+                <div class="top-progress-bar">
+                    <div id="overall-progress-bar" class="top-progress-fill"></div>
+                </div>
+            </div>
+            <h1>English Activities - Interactive Workbook</h1>
+            <p class="subtitle">Select an activity to start</p>
+            <div class="menu-grid">
+                <button class="menu-btn" onclick="goToActivity(3)" data-activity="3"><span class="menu-icon">🎬</span><span class="menu-title">ACT 3: Film Genres</span><span class="menu-desc">Drag &amp; Drop Matching</span></button>
+                <button class="menu-btn" onclick="goToActivity(4)" data-activity="4"><span class="menu-icon">🎥</span><span class="menu-title">ACT 4: Describe a Film</span><span class="menu-desc">Click to Match</span></button>
+
+                <button class="menu-btn" onclick="goToActivity(6)" data-activity="6"><span class="menu-icon">📚</span><span class="menu-title">ACT 6: Second Conditional</span><span class="menu-desc">Dropdown Selection (18 sentences)</span></button>
+                <button class="menu-btn" onclick="goToActivity(7)" data-activity="7"><span class="menu-icon">👁️</span><span class="menu-title">ACT 7: Listening Beauty</span><span class="menu-desc">Multiple Choice (5Q)</span></button>
+                <button class="menu-btn" onclick="goToActivity(8)" data-activity="8"><span class="menu-icon">🎭</span><span class="menu-title">ACT 8: People in Films</span><span class="menu-desc">Two-Part Activity</span></button>
+                <button class="menu-btn" onclick="goToActivity(9)" data-activity="9"><span class="menu-icon">🎫</span><span class="menu-title">ACT 9: Listening Films</span><span class="menu-desc">Checkbox Table</span></button>
+                <button class="menu-btn" onclick="goToActivity(10)" data-activity="10"><span class="menu-icon">🎤</span><span class="menu-title">ACT 10: Speaking</span><span class="menu-desc">Circle Correct Word</span></button>
+                <button class="menu-btn" onclick="goToActivity(11)" data-activity="11"><span class="menu-icon">⚡</span><span class="menu-title">ACT 11: Harry Potter</span><span class="menu-desc">Form + Image Upload</span></button>
+                <button class="menu-btn" onclick="goToActivity(12)" data-activity="12"><span class="menu-icon">🍿</span><span class="menu-title">ACT 12: Cinema Vocab</span><span class="menu-desc">Label Items</span></button>
+                <button class="menu-btn" onclick="goToActivity(13)" data-activity="13"><span class="menu-icon">✍️</span><span class="menu-title">ACT 13: Film List</span><span class="menu-desc">Creative Writing</span></button>
+                <button class="menu-btn" onclick="goToActivity(14)" data-activity="14"><span class="menu-icon">🚗</span><span class="menu-title">ACT 14: Electric Cars</span><span class="menu-desc">Reading + Questions</span></button>
+                <button class="menu-btn" onclick="goToActivity(15)" data-activity="15"><span class="menu-icon">📖</span><span class="menu-title">ACT 15: Reading Topics</span><span class="menu-desc">Match Sentences</span></button>
+                <button class="menu-btn" onclick="goToActivity(16)" data-activity="16"><span class="menu-icon">🎯</span><span class="menu-title">ACT 16: Skyfall Review</span><span class="menu-desc">Fill 12 Gaps</span></button>
+                <button class="menu-btn" onclick="goToActivity(17)" data-activity="17"><span class="menu-icon">🌍</span><span class="menu-title">ACT 17: Pollution</span><span class="menu-desc">Comprehension</span></button>
+                <button class="menu-btn" onclick="goToActivity(18)" data-activity="18"><span class="menu-icon">⚙️</span><span class="menu-title">ACT 18: Passive Voice</span><span class="menu-desc">3-Part Grammar</span></button>
+            </div>
+        </div>
+
+<!-- PAGE 3: Film Genres Section (ACTIVITY 3) -->
+        <div id="page3" class="section activity-theme-cinema">
+            <div class="section-header">
+                <button class="back-btn" onclick="showSection('menu')">← Back to Menu</button>
+                <h2>PAGE 3-8: VOCABULARY - Film Genres</h2>
+                <button class="reset-btn" onclick="resetGame()">🔄 Reset</button>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-text">Progress: <span id="correct-count">0</span> / 10</div>
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- Draggable Genre Cards (TOP) -->
+            <div class="genres-container">
+                <h3>Drag the genres to match with their definitions below:</h3>
+                <div id="genres-list" class="genres-list">
+                    <!-- Genre cards will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Drop Zone Definitions (BOTTOM) -->
+            <div class="definitions-container">
+                <h3>Definitions:</h3>
+                <div id="definitions-list" class="definitions-list">
+                    <!-- Definition boxes will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section - REMOVED -->
+        <!-- Instructions Section -->
+
+    </div>
+
+    <!-- PAGE 4: Describe a Film (ACTIVITY 4) -->
+    <div id="page4" class="section activity-theme-script">
+        <div class="section-header">
+            <button class="back-btn" onclick="jumpToMenu()">← Back to Menu</button>
+            <h2>ACTIVITY 4: Describe a Film</h2>
+            <button class="reset-btn" onclick="resetActivity4()">🔄 Reset</button>
+        </div>
+        <div class="progress-container">
+            <div class="progress-text">Progress: <span id="act4-correct">0</span> / 4</div>
+            <div class="progress-bar"><div id="act4-progress" class="progress-fill"></div></div>
+        </div>
+        <div class="content-box">
+            <h3>🎬 Match film questions with answers (click question, then answer)</h3>
+            <div id="act4-questions" class="vertical-list"></div>
+            <h3 style="margin-top: var(--space-24);">Answers:</h3>
+            <div id="act4-answers" class="vertical-list"></div>
+        </div>
+    </div>
+
+
+
+    <!-- PAGE 6: Second Conditional Section (ACTIVITY 6) -->
+    <div id="page6" class="section activity-theme-grammar">
+        <div class="section-header">
+            <button class="back-btn" onclick="jumpToMenu()">← Back to Menu</button>
+            <h2>ACTIVITY 6: Second Conditional</h2>
+            <button class="reset-btn" onclick="resetConditional()">🔄 Reset</button>
+        </div>
+        <div class="progress-container">
+            <div class="progress-text">Progress: <span id="conditional-correct">0</span> / 18</div>
+            <div class="progress-bar"><div id="conditional-progress" class="progress-fill"></div></div>
+        </div>
+        <div class="content-box">
+            <h3>📚 Select the correct verbs from the dropdown menus</h3>
+            <p style="margin-bottom: 20px; color: var(--color-text-secondary);">Choose the correct verb form for each blank in the sentence.</p>
+            <div id="conditional-sentences" class="vertical-list"></div>
+        </div>
+    </div>
+    <!-- PAGE 7: LISTENING Section -->
+    <div id="page7" class="section">
+        <div class="section-header">
+            <button class="back-btn" onclick="jumpToMenu()">← Back to Menu</button>
+            <h2>PAGE 7: LISTENING - Beauty Discussion</h2>
+            <button class="reset-btn" onclick="resetListening7()">🔄 Reset</button>
+        </div>
+        <div class="progress-container">
+            <div class="progress-text">Progress: <span id="listening7-correct">0</span> / 5</div>
+            <div class="progress-bar"><div id="listening7-progress" class="progress-fill"></div></div>
+        </div>
+        <div class="content-box">
+            <h3>Activity 7: Listen to people talking about beauty</h3>
+            <p style="margin-bottom: 20px; color: var(--color-text-secondary);">Choose the correct answer for each question.</p>
+            
+            <div id="listening7-container"></div>
+            
+            <button class="submit-btn" onclick="checkListening7()" style="margin-top: 20px;">Check Answers</button>
+        </div>
+    </div>
+
+    <!-- PAGE 8: People in Films Section -->
+    <div id="page8" class="section">
+        <div class="section-header">
+            <button class="back-btn" onclick="jumpToMenu()">← Back to Menu</button>
+            <h2>PAGE 8: People in Films</h2>
+            <button class="reset-btn" onclick="resetPeople()">🔄 Reset</button>
+        </div>
+        <div class="progress-container">
+            <div class="progress-text">Progress: <span id="people-correct">0</span> / 10</div>
+            <div class="progress-bar"><div id="people-progress" class="progress-fill"></div></div>
+        </div>
+        <div class="content-box" style="margin-bottom: 24px;">
+            <h3 style="margin-bottom: 16px;">Activity 8 - Part 1: Match roles with definitions</h3>
+            <p style="margin-bottom: 20px; color: var(--color-text-secondary);">Click on a role, then click on the matching definition.</p>
+            
+            <div style="margin-bottom: 32px;">
+                <h4 style="margin-bottom: 12px; font-size: 16px;">Roles:</h4>
+                <div id="roles-list" class="vertical-list"></div>
+            </div>
+            
+            <div>
+                <h4 style="margin-bottom: 12px; font-size: 16px;">Definitions:</h4>
+                <div id="definitions-people-list" class="vertical-list"></div>
+            </div>
+        </div>
+        <div class="content-box">
+            <h3 style="margin-bottom: 16px;">Activity 8 - Part 2: Complete the sentences</h3>
+            <div id="people-sentences-list" class="vertical-list"></div>
+        </div>
+    </div>
+    <!-- PAGE 9: LISTENING Films Section -->
+    <div id="page9" class="section">
+        <div class="section-header">
+            <button class="back-btn" onclick="jumpToMenu()">← Back to Menu</button>
+            <h2>PAGE 9: LISTENING - Films</h2>
+            <button class="reset-btn" onclick="resetListening9()">🔄 Reset</button>
+        </div>
+        <div class="progress-container">
+            <div class="progress-text">Progress: <span id="listening9-correct">0</span> / 11</div>
+            <div class="progress-bar"><div id="listening9-progress" class="progress-fill"></div></div>
+        </div>
+        <div class="content-box" style="margin-bottom: 24px;">
+            <h3>Activity 9: Check the films they have seen</h3>
+            <p style="margin-bottom: 20px; color: var(--color-text-secondary);">Listen and check the boxes for films mentioned by Rosy and Jon.</p>
+            <div id="listening9-container"></div>
+            <button class="check-btn" onclick="checkListening9()" style="margin-top: 16px;">Check Answers</button>
+        </div>
+        <div class="content-box">
+            <h3>Activity 10: Speaking - Circle the correct words</h3>
+            <p style="margin-bottom: 20px; color: var(--color-text-secondary);">Choose the correct word in each sentence.</p>
+            <div id="speaking10-container"></div>
+            <button class="check-btn" onclick="checkSpeaking10()" style="margin-top: 16px;">Check Answers</button>
+        </div>
+    </div>
+
+    <!-- PAGE 11: Harry Potter Review Section -->
+    <div id="page11" class="section">
+        <div class="section-header">
+            <button class="back-btn" onclick="jumpToMenu()">← Back to Menu</button>
+            <h2>PAGE 11: WRITING - Harry Potter Review</h2>
+            <button class="reset-btn" onclick="resetPotter()">🔄 Reset</button>
+        </div>
+        <div class="content-box">
+            <h3 style="margin-bottom: 20px;">Activity 11: Complete the Harry Potter Review</h3>
+            
+            <div class="image-upload-section" style="margin-bottom: 32px;">
+                <label style="display: block; font-weight: 600; margin-bottom: 8px;">Movie Poster (upload different image if desired):</label>
+                <input type="file" id="potter-image" accept="image/*" style="margin-bottom: 12px;">
+                <div id="image-preview" class="image-preview">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/383873c3-9b52-4834-a740-be37b83abeb5" alt="Harry Potter and the Philosopher's Stone" style="max-width: 100%; max-height: 400px; object-fit: contain;">
+                </div>
+            </div>
+            
+            <form id="potter-form" autocomplete="off"></form>
+        </div>
+    </div>
+    <!-- PAGE 66: Electric Cars Section -->
+    <!-- PAGE 12: Cinema Vocabulary (ACTIVITY 12) -->
+    <div id="page12" class="section activity-theme-cinema-interior">
+        <div class="section-header">
+            <button class="back-btn" onclick="jumpToMenu()">← Back to Menu</button>
+            <h2>ACTIVITY 12: Cinema Vocabulary</h2>
+            <button class="reset-btn" onclick="resetActivity12()">🔄 Reset</button>
+        </div>
+        <div class="content-box">
+            <h3>🎞️ Label cinema parts (type the word)</h3>
+            <div id="act12-container"></div>
+        </div>
+    </div>
+
+    <!-- PAGE 13: Create Film List (ACTIVITY 13) -->
+    <div id="page13" class="section activity-theme-creative">
+        <div class="section-header">
+            <button class="back-btn" onclick="jumpToMenu()">← Back to Menu</button>
+            <h2>ACTIVITY 13: Create Film List</h2>
+            <button class="reset-btn" onclick="resetActivity13()">🔄 Reset</button>
+        </div>
+        <div class="content-box">
+            <h3>✍️ Write one film for each genre</h3>
+            <div id="act13-container"></div>
+            <button class="submit-btn" onclick="checkActivity13()">Submit List</button>
+        </div>
+    </div>
+
+    <!-- PAGE 14: Electric Cars (ACTIVITY 14) -->
+    <div id="page14" class="section activity-theme-tech">
+        <div class="section-header">
+            <button class="back-btn" onclick="jumpToMenu()">← Back to Menu</button>
+            <h2>ACTIVITY 14: Electric Cars Discussion</h2>
+            <button class="reset-btn" onclick="resetActivity14()">🔄 Reset</button>
+        </div>
+        <div class="progress-container">
+            <div class="progress-text">Progress: <span id="act14-correct">0</span> / 3</div>
+            <div class="progress-bar"><div id="act14-progress" class="progress-fill"></div></div>
+        </div>
+        <div class="content-box">
+            <h3>🚗 Answer questions about electric cars</h3>
+            <div id="act14-container"></div>
+            <button class="check-btn" onclick="checkActivity14()">Check Answers</button>
+        </div>
+    </div>
+
+    <!-- PAGE 15: Reading Match Topics (ACTIVITY 15) -->
+    <div id="page15" class="section activity-theme-reading">
+        <div class="section-header">
+            <button class="back-btn" onclick="jumpToMenu()">← Back to Menu</button>
+            <h2>ACTIVITY 15: Reading - Match Topic Sentences</h2>
+            <button class="reset-btn" onclick="resetActivity15()">🔄 Reset</button>
+        </div>
+        <div class="progress-container">
+            <div class="progress-text">Progress: <span id="act15-correct">0</span> / 5</div>
+            <div class="progress-bar"><div id="act15-progress" class="progress-fill"></div></div>
+        </div>
+        <div class="content-box">
+            <h3>📖 Match 5 topic sentences to 3 paragraphs</h3>
+            <div id="act15-container"></div>
+        </div>
+    </div>
+
+    <!-- PAGE 16: Skyfall Review (ACTIVITY 16) -->
+    <div id="page16" class="section activity-theme-bond">
+        <div class="section-header">
+            <button class="back-btn" onclick="jumpToMenu()">← Back to Menu</button>
+            <h2>ACTIVITY 16: Skyfall Review - Fill Gaps</h2>
+            <button class="reset-btn" onclick="resetActivity16()">🔄 Reset</button>
+        </div>
+        <div class="progress-container">
+            <div class="progress-text">Progress: <span id="act16-correct">0</span> / 12</div>
+            <div class="progress-bar"><div id="act16-progress" class="progress-fill"></div></div>
+        </div>
+        <div class="content-box">
+            <h3>007 Fill 12 gaps in Skyfall review</h3>
+            <div id="act16-container"></div>
+            <button class="check-btn" onclick="checkActivity16()">Check Answers</button>
+        </div>
+    </div>
+
+    <!-- PAGE 17: Pollution (ACTIVITY 17) -->
+    <div id="page17" class="section activity-theme-environment">
+        <div class="section-header">
+            <button class="back-btn" onclick="jumpToMenu()">← Back to Menu</button>
+            <h2>ACTIVITY 17: Pollution Reading</h2>
+            <button class="reset-btn" onclick="resetActivity17()">🔄 Reset</button>
+        </div>
+        <div class="content-box">
+            <h3>🌍 Answer 6 pollution comprehension questions</h3>
+            <div id="act17-container"></div>
+            <button class="submit-btn" onclick="checkActivity17()">Submit Answers</button>
+        </div>
+    </div>
+
+    <!-- PAGE 18: Passive Voice (ACTIVITY 18) -->
+    <div id="page18" class="section activity-theme-mechanics">
+        <div class="section-header">
+            <button class="back-btn" onclick="jumpToMenu()">← Back to Menu</button>
+            <h2>ACTIVITY 18: Passive Voice Mastery</h2>
+            <button class="reset-btn" onclick="resetActivity18()">🔄 Reset</button>
+        </div>
+        <div class="progress-container">
+            <div class="progress-text">Progress: <span id="act18-correct">0</span> / 24</div>
+            <div class="progress-bar"><div id="act18-progress" class="progress-fill"></div></div>
+        </div>
+        <div class="content-box">
+            <h3>⚙️ Complete passive voice exercises (3 parts)</h3>
+            <div id="act18-container"></div>
+            <button class="check-btn" onclick="checkActivity18()">Check All Parts</button>
+        </div>
+    </div>
+
+    <!-- OLD PAGE 66 REMOVED, replaced with specific activities -->
+    <div id="page66" class="section" style="display: none;">
+        <div class="section-header">
+            <button class="back-btn" onclick="jumpToMenu()">← Back to Menu</button>
+            <h2>PAGE 66-68: READING - Green Products &amp; Electric Cars</h2>
+            <button class="reset-btn" onclick="resetReviews()">🔄 Reset</button>
+        </div>
+        <div class="progress-container">
+            <div class="progress-text">Progress: <span id="reviews-correct">0</span> / 22</div>
+            <div class="progress-bar"><div id="reviews-progress" class="progress-fill"></div></div>
+        </div>
+        <div id="reviews-container" class="content-box"></div>
+    </div>
+    <!-- PAGE 10: Speaking Circle Correct (ACTIVITY 10) -->
+    <div id="page10" class="section activity-theme-stage">
+        <div class="section-header">
+            <button class="back-btn" onclick="jumpToMenu()">← Back to Menu</button>
+            <h2>ACTIVITY 10: Speaking - Circle the Correct Word</h2>
+            <button class="reset-btn" onclick="resetActivity10()">🔄 Reset</button>
+        </div>
+        <div class="progress-container">
+            <div class="progress-text">Progress: <span id="act10-correct">0</span> / 6</div>
+            <div class="progress-bar"><div id="act10-progress" class="progress-fill"></div></div>
+        </div>
+        <div class="content-box">
+            <h3>🎤 Circle the correct word in each sentence</h3>
+            <div id="act10-container"></div>
+            <button class="check-btn" onclick="checkActivity10()">Check Answers</button>
+        </div>
+    </div>
+
+    <!-- PAGE 73: OLD POLLUTION Section (hidden) -->
+    <div id="page73" class="section" style="display: none;">
+        <div class="section-header">
+            <button class="back-btn" onclick="jumpToMenu()">← Back to Menu</button>
+            <h2>PAGE 73-78: LET'S PROTECT THE ENVIRONMENT</h2>
+            <button class="reset-btn" onclick="resetPollution()">🔄 Reset</button>
+        </div>
+        <div id="pollution-container" class="content-box"></div>
+    </div>
+    <!-- Navigation bar -->
+    <div id="activity-navigation" class="activity-navigation">
+        <button id="nav-prev" class="nav-btn">← Previous Activity</button>
+        <span id="activity-indicator" class="activity-indicator"></span>
+        <button id="nav-next" class="nav-btn">Next Activity →</button>
+        <button id="nav-menu" class="nav-menu-btn">☰ All Activities</button>
+    </div>
+    <!-- Credits Footer -->
+    <footer id="credits-footer" class="credits-footer">
+        <div class="credits-content">
+            <div class="credits-main">
+                <strong>Creado por:</strong> Jordy Alexander Aguilar Yunga
+            </div>
+            <div class="credits-grade">Grado: 3ro E</div>
+            <div class="credits-year">English Interactive Workbook • 2025</div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
